@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./CharacterCard.css"
 
-function CharacterCard() {
+function CharacterCard(props) {
   return (
-    <div>CharacterCard</div>
-  )
+    <Link to={`/CharacterDetails/${props.eachCharacter.id}`} style={{ textDecoration: "none", color: "black" }}>
+      <div className="characterCard">
+        <img src={props.eachCharacter.image} alt="Character Image" />
+        <h2>{props.eachCharacter.name}</h2>
+      </div>
+    </Link>
+  );
 }
 
-export default CharacterCard
+export default CharacterCard;

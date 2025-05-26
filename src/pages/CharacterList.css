@@ -1,0 +1,10 @@
+.characterList{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-grow: 4;
+    gap: 20px;
+    padding: 200px;
+    text-align: center;
+}
