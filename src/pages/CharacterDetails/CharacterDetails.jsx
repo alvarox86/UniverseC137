@@ -21,11 +21,7 @@ function CharacterDetails() {
       );
       setCharacterDetails(response.data);
 
-      const responseVariants = await axios.get(
-        `${import.meta.env.VITE_SERVER_URL}/variations?apiId=${
-          params.characterId
-        }`
-      );
+      const responseVariants = await axios.get(`${import.meta.env.VITE_SERVER_URL}/variations?apiId=${params.characterId}`);
       setVariantsList(responseVariants.data);
     } catch (error) {
       console.log(error);
@@ -49,10 +45,7 @@ function CharacterDetails() {
           <li>{characterDetails.type}</li>
           <li>{characterDetails.gender}</li>
           <li>{characterDetails.origin.name}</li>
-          <li>
-            Numero de veces que aparece en toda la serie:{" "}
-            {characterDetails.episode.length}
-          </li>
+          <li>Numero de veces que aparece en toda la serie{characterDetails.episode.length}</li>
         </ul>
       </div>
 
