@@ -16,9 +16,7 @@ function CharacterDetails() {
 
   const getData = async () => {
     try {
-      const response = await axios.get(
-        `https://rickandmortyapi.com/api/character/${params.characterId}`
-      );
+      const response = await axios.get(`https://rickandmortyapi.com/api/character/${params.characterId}`);
       setCharacterDetails(response.data);
 
       const responseVariants = await axios.get(`${import.meta.env.VITE_SERVER_URL}/variations?apiId=${params.characterId}`);

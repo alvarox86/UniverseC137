@@ -6,6 +6,7 @@ import CharacterList from './pages/CharacterList'
 import CharacterDetails from './pages/CharacterDetails/CharacterDetails'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
 import VariantDetails from './pages/VariantDetails/VariantDetails'
+import AboutPage from './pages/CharacterDetails/AboutPage/AboutPage'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/CharacterList/' element={<CharacterList/>} />
         <Route path='/CharacterDetails/:characterId' element={<CharacterDetails/>} />
         <Route path='/VariantDetails/:variantId' element={<VariantDetails/>} />
+        <Route path='/AboutPage' element={<AboutPage/>} />
 
         <Route path='*' element={<ErrorPage/>} />
       </Routes>

@@ -31,19 +31,19 @@ function MyNavBar() {
       onClick={toggleDrawer(false)}
     >
       <List>
-        <Link style={{ textDecoration: "none", color: "black" }}>
+        <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
           <ListItem>
             <HomeIcon sx={{ paddingRight: "10px" }} /> Home
           </ListItem>
         </Link>
         <Divider />
-        <Link style={{ textDecoration: "none", color: "black" }}>
+        <Link to={"https://github.com/alvarox86/UniverseC137"} style={{ textDecoration: "none", color: "black" }} target="_blank">
           <ListItem>
             <GitHubIcon sx={{ paddingRight: "10px" }} /> Repository
           </ListItem>
         </Link>
         <Divider />
-        <Link style={{ textDecoration: "none", color: "black" }}>
+        <Link to={"/AboutPage"} style={{ textDecoration: "none", color: "black" }}>
           <ListItem>
             <InfoIcon sx={{ paddingRight: "10px" }} /> About the page
           </ListItem>
