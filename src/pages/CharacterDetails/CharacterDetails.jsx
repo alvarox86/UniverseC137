@@ -1,26 +1,27 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import VariantCard from "../../components/VariantCard/VariantCard";
 
 function CharacterDetails() {
   const params = useParams();
+  const navigate = useNavigate()
 
   const [characterDetails, setCharacterDetails] = useState(null);
   const [variantsList, setVariantsList] = useState([]);
 
   useEffect(() => {
     getData();
-  }, [params]);
+  }, []);
 
   const getData = async () => {
     try {
-      const response = await axios.get(`https://rickandmortyapi.com/api/character/${params.characterId}`);
-      setCharacterDetails(response.data);
-
       const responseVariants = await axios.get(`${import.meta.env.VITE_SERVER_URL}/variations?apiId=${params.characterId}`);
       setVariantsList(responseVariants.data);
+      const response = await axios.get(`https://rickandmortyapi.com/api/character/${params.characterId}`);
+      setCharacterDetails(response.data); 
+
     } catch (error) {
       console.log(error);
     }
@@ -29,6 +30,17 @@ function CharacterDetails() {
   if (characterDetails === null) {
     return <CircularProgress color="inherit" />;
   }
+
+  const handleDeleteVariant = (id) => {
+     axios.delete(`${import.meta.env.VITE_SERVER_URL}/variations/${id}`)
+     .then(() => {
+      // si entramos en este .then, significa que todo estuvo ok. Se creo correctamente el proyecto.
+
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
 
   return (
     <div>
@@ -50,7 +62,7 @@ function CharacterDetails() {
       <div>
         {variantsList.map((eachVariant) => {
           return ( 
-            <VariantCard key={eachVariant.id} eachVariant={eachVariant}/>
+            <VariantCard key={eachVariant.id} eachVariant={eachVariant} handleDeleteVariant={handleDeleteVariant} />
           );
         })}
       </div>

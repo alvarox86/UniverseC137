@@ -12,6 +12,8 @@ import ListItem from "@mui/material/ListItem";
 import HomeIcon from "@mui/icons-material/Home";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InfoIcon from "@mui/icons-material/Info";
+import Face2Icon from '@mui/icons-material/Face2';
+import Face6Icon from '@mui/icons-material/Face6';
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
 import logoPagina from "../assets/images/portal.png";
@@ -37,6 +39,18 @@ function MyNavBar() {
           </ListItem>
         </Link>
         <Divider />
+        <Link to={"/CharacterDetails/1"} style={{ textDecoration: "none", color: "black" }}>
+          <ListItem>
+            <Face2Icon sx={{ paddingRight: "10px" }} /> Rick
+          </ListItem>
+        </Link>
+        <Divider />
+        <Link to={"/CharacterDetails/2"} style={{ textDecoration: "none", color: "black" }}>
+          <ListItem>
+            <Face6Icon sx={{ paddingRight: "10px" }} /> Morty
+          </ListItem>
+        </Link>
+        <Divider />
         <Link to={"https://github.com/alvarox86/UniverseC137"} style={{ textDecoration: "none", color: "black" }} target="_blank">
           <ListItem>
             <GitHubIcon sx={{ paddingRight: "10px" }} /> Repository
@@ -53,6 +67,7 @@ function MyNavBar() {
            <FavoriteIcon sx={{paddingRight: "10px"}}/> Favorites characters 
         </ListItem>
         <Divider /> */}
+        
       </List>
     </Box>
   );
