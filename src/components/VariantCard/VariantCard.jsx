@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./variantCard.css";
+import "./VariantCard.css";
 
 function VariantCard(props) {
   return (
