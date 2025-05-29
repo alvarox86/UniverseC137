@@ -5,7 +5,7 @@ function CharacterCard(props) {
   return (
     <Link to={`/CharacterDetails/${props.eachCharacter.id}`} style={{ textDecoration: "none", color: "black" }}>
       <div className="characterCard">
-        <img src={props.eachCharacter.image} alt="Character Image" /> 
+        <img src={props.eachCharacter.image} alt="Character Image" className="characterCardImg"/> 
         <h2>{props.eachCharacter.name}</h2>
       </div>
     </Link>

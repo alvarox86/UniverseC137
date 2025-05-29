@@ -6,7 +6,7 @@ function VariantCard(props) {
     <div key={props.eachVariant.id} className="variantCard">
       <Link to={`/VariantDetails/${props.eachVariant.id}`}>
         <div>
-          <img src={props.eachVariant.image} alt="Variant Image" />
+          <img src={props.eachVariant.image} alt="Variant Image" className="variantImg"/>
           <h2>{props.eachVariant.name}</h2>
         </div>
       </Link>
