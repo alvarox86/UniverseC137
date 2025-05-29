@@ -11,9 +11,18 @@ function CharacterDetails() {
   const [characterDetails, setCharacterDetails] = useState(null);
   const [variantsList, setVariantsList] = useState([]);
 
+  //-----------------------
+    //Estados para crear nuevas variantes de los personajes.
+  const [nameNewVariant, setNameNewVariant] = useState("")
+  const [statusNewVariant, setStatusNewVariant] = useState("")
+  const [speciesNewVariant, setSpeciesNewVariant] = useState("")
+  const [typeNewVariant, setTypeNewVariant] = useState("")
+  const [genderNewVariant, setGenderNewVariant] = useState("")
+  const [imageNewVariant, setImageNewVariant] = useState("")
+  //-----------------------
   useEffect(() => {
     getData();
-  }, []);
+  }, [params]);
 
   const getData = async () => {
     try {
@@ -35,11 +44,38 @@ function CharacterDetails() {
      axios.delete(`${import.meta.env.VITE_SERVER_URL}/variations/${id}`)
      .then(() => {
       // si entramos en este .then, significa que todo estuvo ok. Se creo correctamente el proyecto.
-
+      getData()
+      setNameNewVariant("")
+      setStatusNewVariant("")
+      setSpeciesNewVariant("")
+      setTypeNewVariant("")
+      setGenderNewVariant("")
+      setImageNewVariant("")
     })
     .catch((error) => {
       console.log(error)
     })
+}
+
+const handleSubmitNewVariant = (e) => {
+  e.preventDefault();
+
+  const newVariant = {
+    name: nameNewVariant,
+    status: statusNewVariant,
+    species : speciesNewVariant,
+    type : typeNewVariant,
+    gender : genderNewVariant,
+    image : imageNewVariant,
+    apiId : params.characterId
+  }
+
+  try {
+    axios.post(`${import.meta.env.VITE_SERVER_URL}/variations`, newVariant)
+    getData()
+  } catch (error) {
+    console.log(error)
+  }
 }
 
   return (
@@ -59,6 +95,31 @@ function CharacterDetails() {
         </ul>
       </div>
 
+      <div className="formAddVariant">
+        <form onSubmit={handleSubmitNewVariant}>
+          <label>Name</label>
+          <input type="text" name="variantName" value={nameNewVariant} onChange={(e) => setNameNewVariant(e.target.value)}/>
+
+          <label>Status</label>
+          <input type="text" name="variantStatus" value={statusNewVariant} onChange={(e) => setStatusNewVariant(e.target.value)}/>
+
+          <label>Species</label>
+          <input type="text" name="variantSpecies" value={speciesNewVariant} onChange={(e) => setSpeciesNewVariant(e.target.value)}/>
+
+          <label>Type</label>
+          <input type="text" name="variantType" value={typeNewVariant} onChange={(e) => setTypeNewVariant(e.target.value)}/>
+
+          <label>Gender</label>
+          <input type="text" name="variantGender" value={genderNewVariant} onChange={(e) => setGenderNewVariant(e.target.value)}/>
+
+          <label>Image (URL)</label>
+          <input type="url" name="variantImage" value={imageNewVariant} onChange={(e) => setImageNewVariant(e.target.value)}/>
+
+          <button type="submit">Create a new variant</button>
+
+        </form>
+      </div>
+
       <div>
         {variantsList.map((eachVariant) => {
           return ( 
@@ -66,6 +127,8 @@ function CharacterDetails() {
           );
         })}
       </div>
+
+      
     </div>
   );
 }

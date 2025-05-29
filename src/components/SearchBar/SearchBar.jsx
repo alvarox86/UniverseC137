@@ -9,7 +9,9 @@ function SearchBar(props) {
         type="text"
         onChange={handleSearch}
         value={props.searchInputValue}
+        placeholder="Find a character..."
       />
+      <button onClick={props.handleResetSearch}>❌</button> 
     </div>
   );
 }
