@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import CircularProgress from "@mui/material/CircularProgress";
-import { TryRounded } from "@mui/icons-material";
+import "./VariantDetails.css"
 
 function VariantDetails() {
     const params = useParams()
@@ -61,37 +61,38 @@ function VariantDetails() {
 
   return (
     <div>
+      <div className="variantsDetailsContainer">
         <div>
-        <img src={variantDetails.image} alt="Character image" />
+        <img src={variantDetails.image} alt="Character image" className="variantImg"/>
       </div>
-      <div>
-        <ul>
-          <li>{variantDetails.name}</li>
-          <li>{variantDetails.status}</li>
-          <li>{variantDetails.species}</li>
-          <li>{variantDetails.type}</li>
-          <li>{variantDetails.gender}</li>
-        </ul>
+      <div className="variantInfo">
+        <p>Name: <strong>{variantDetails.name}</strong></p>
+        <p>Status: <strong>{variantDetails.status}</strong></p>
+        <p>Species: <strong>{variantDetails.species}</strong></p>
+        <p>Type: <strong>{variantDetails.type}</strong></p>
+        <p>Gender: <strong>{variantDetails.gender}</strong></p>
+      </div>
       </div>
       <div className="variantFormUpdate">
         <form onSubmit={handleSubmitForm}>
+          <h3 className="h3UpdateVariant">Update Variant</h3>
           <label>Name</label>
-          <input type="text" name="variantName" value={nameVariant} onChange={(e) => setNameVariant(e.target.value)}/>
+          <input type="text" required name="variantName" value={nameVariant} onChange={(e) => setNameVariant(e.target.value)}/>
 
           <label>Status</label>
-          <input type="text" name="variantStatus" value={statusVariant} onChange={(e) => setStatusVariant(e.target.value)}/>
+          <input type="text" required name="variantStatus" value={statusVariant} onChange={(e) => setStatusVariant(e.target.value)}/>
 
           <label>Species</label>
-          <input type="text" name="variantSpecies" value={speciesVariant} onChange={(e) => setSpeciesVariant(e.target.value)}/>
+          <input type="text" required name="variantSpecies" value={speciesVariant} onChange={(e) => setSpeciesVariant(e.target.value)}/>
 
           <label>Type</label>
-          <input type="text" name="variantType" value={typeVariant} onChange={(e) => setTypeVariant(e.target.value)}/>
+          <input type="text" required name="variantType" value={typeVariant} onChange={(e) => setTypeVariant(e.target.value)}/>
 
           <label>Gender</label>
-          <input type="text" name="variantGender" value={genderVariant} onChange={(e) => setGenderVariant(e.target.value)}/>
+          <input type="text" required name="variantGender" value={genderVariant} onChange={(e) => setGenderVariant(e.target.value)}/>
 
           <label>Image (URL)</label>
-          <input type="url" name="variantImage" value={imageVariant} onChange={(e) => setImageVariant(e.target.value)}/>
+          <input type="url" required name="variantImage" value={imageVariant} onChange={(e) => setImageVariant(e.target.value)}/>
 
           <button type="submit">Update Variant</button>
 

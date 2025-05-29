@@ -1,17 +1,21 @@
+import "./SearchBar.css"
+
 function SearchBar(props) {
   const handleSearch = (event) => {
     props.setSearchInputValue(event.target.value);
   };
 
   return (
-    <div className="search-bar container">
+    <div className="searchBarContainer">
+      <h3>Find a character</h3>
       <input
         type="text"
         onChange={handleSearch}
         value={props.searchInputValue}
-        placeholder="Find a character..."
+        placeholder="Type de name..."
       />
-      <button onClick={props.handleResetSearch}>❌</button> 
+      <p></p>
+      <button onClick={props.handleResetSearch}>Back ❌</button> 
     </div>
   );
 }

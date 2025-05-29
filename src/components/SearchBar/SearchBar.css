@@ -1,0 +1,13 @@
+.searchBarContainer{
+    text-align: center;
+}
+
+.searchBarContainer p{
+    margin: 5px;
+}
+
+.searchBarContainer button{
+    border: none;
+    background: none;
+}
+

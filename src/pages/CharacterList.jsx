@@ -95,7 +95,9 @@ const handleResetSearch = () => {
         setSearchInputValue={setSearchInputValue}
         handleResetSearch={handleResetSearch}
       />
-      <button onClick={handleSubmitSearch}>Search character</button>
+      <div className="btnSubmitSearch">
+        <button onClick={handleSubmitSearch} >Search character</button>
+      </div>
 
       <div className="characterList">
         {allCharacters.map((eachCharacter) => {

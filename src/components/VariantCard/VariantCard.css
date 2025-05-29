@@ -1,3 +1,25 @@
 .variantCard{
     background-color: lightgray;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgb(124, 124, 124);
+  width: 300px;
+  height: 400px;
+}
+
+.variantCard h2{
+   color: rgb(56, 56, 56);
+}
+
+.deleteBtnVariant{
+    border: none;
+    border-radius:5px;
+    font-size: 20px;
+}
+
+.deleteBtnVariant:hover{
+    border: none;
+
+    background-color: red;
+    transition: 0.6s;
 }
