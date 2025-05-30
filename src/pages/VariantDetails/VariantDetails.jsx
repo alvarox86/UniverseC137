@@ -30,6 +30,7 @@ function VariantDetails() {
             setVariantDetails(response.data)
         } catch (error) {
             console.log(error)
+            navigate("*")
         }
     }
 
@@ -55,6 +56,7 @@ function VariantDetails() {
         navigate(`/CharacterDetails/${variantDetails.apiId}`)
       } catch (error) {
         console.log(error)
+        navigate("*")
       }
 
     }

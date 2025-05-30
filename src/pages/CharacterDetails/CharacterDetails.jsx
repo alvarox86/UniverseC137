@@ -33,6 +33,7 @@ function CharacterDetails() {
 
     } catch (error) {
       console.log(error);
+      navigate("*")
     }
   };
 
@@ -49,6 +50,7 @@ function CharacterDetails() {
     })
     .catch((error) => {
       console.log(error)
+      navigate("*")
     })
 }
 
@@ -76,6 +78,7 @@ const handleSubmitNewVariant = async (e) => {
       setImageNewVariant("")
   } catch (error) {
     console.log(error)
+    navigate("*")
   }
 }
 

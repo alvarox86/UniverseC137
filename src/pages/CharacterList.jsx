@@ -7,6 +7,7 @@ import "./CharacterList.css";
 import CircularProgress from "@mui/material/CircularProgress";
 
 import SearchBar from "../components/SearchBar/SearchBar";
+import { useNavigate } from "react-router-dom";
 
 function CharacterList() {
   const [allCharacters, setAllCharaters] = useState(null);
@@ -14,6 +15,8 @@ function CharacterList() {
   const [page, setPage] = useState(1);
   const [searchInputValue, setSearchInputValue] = useState("");
   const [isUsingSearch, setIsUsingSearch] = useState(false)
+
+  const navigate = useNavigate()
 
   const handleChangePage = (event, value) => {
     // el evento debemos dejarlo como parametro aunque no lo usemos.
@@ -43,6 +46,7 @@ function CharacterList() {
       setCountPages(response.data.info.pages);
     } catch (error) {
       console.log(error);
+      navigate("*")
     }
   };
 
@@ -62,6 +66,7 @@ function CharacterList() {
       setSearchInputValue("")
     } catch (error) {
       console.log(error);
+      navigate("*")
     }
   };
 
