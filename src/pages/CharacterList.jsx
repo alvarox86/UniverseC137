@@ -66,7 +66,6 @@ function CharacterList() {
       setSearchInputValue("")
     } catch (error) {
       console.log(error);
-      navigate("*")
     }
   };
 
