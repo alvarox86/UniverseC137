@@ -63,7 +63,6 @@ function CharacterList() {
       setCountPages(response.data.info.pages);
       setIsUsingSearch(true)
       setPage(1)
-      setSearchInputValue("")
     } catch (error) {
       console.log(error);
     }
